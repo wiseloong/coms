@@ -11,7 +11,7 @@
             [bidi.bidi :as bidi]
             [bidi.router :as br]
             [fipp.edn :as fedn]
-            [wiseloong.router :as cr]))
+            [wise.router :as cr]))
 
 (defn ysz []
   (println 1))
@@ -82,11 +82,9 @@
   ;(fn []
   ;(let [abc (:handler @cr/!location)]
   ;(let [abc (cr/get-page)]
-  (let [abc (cr/get-location! r)]
-    [:div [abc]]))
+  [:div [cr/dispatch-router!]])
 
 (defn ^:export xxx []
-  (js/jQuery)
   (let [router (cr/start-router! app-routes)]
     (r/render [yyy router] (.getElementById js/document "app")))
   ;(cr/router! app-routes)
